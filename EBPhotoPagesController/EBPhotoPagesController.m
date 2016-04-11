@@ -621,14 +621,6 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
             [self setPhotoDimLevel:0.0];
             return;
         }
-        
-        if(self.captionView.contentOffset.y + self.captionView.contentInset.top > 10){
-            [self setPhotoDimLevel:0.5];
-            self.captionView.expanded = YES;
-        } else {
-            [self setPhotoDimLevel:0.0];
-            self.captionView.expanded = NO;
-        }
     }
     
     if(object == self && [keyPath isEqualToString:CurrentPhotoIndexKeyPath]){
