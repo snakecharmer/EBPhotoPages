@@ -184,9 +184,6 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
     NSAssert([viewController isKindOfClass:[EBPhotoViewController class]], @"EBPhotoPageViewController requires the use of EBPhotoViewController kind of classes.");
     EBPhotoViewController *photoViewController = (EBPhotoViewController *)viewController;
     NSInteger nextIndex = photoViewController.photoIndex + 1;
-    if (nextIndex > _totalCount) {
-        nextIndex = 1;
-    }
     UIViewController *newController = [self pageViewController:pageViewController viewControllerAtIndex:nextIndex];
     return newController;
 }
