@@ -736,6 +736,10 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
     } else {
         counterTitle = [NSString stringWithFormat:@"%ld/%ld", photoIndex+1, (long)_totalCount];
     }
+    
+    if (_totalCount <= 1) {
+        counterTitle = 0;
+    }
 
     self.counterBarButtonItem.title = counterTitle;
 }
