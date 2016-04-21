@@ -119,5 +119,7 @@
 - (UIImage *)iconForCommentsBarButtonItemForPhotoPagesController:(EBPhotoPagesController *)controller
                                                         forState:(UIControlState)state
                                                        withCount:(NSInteger)count;
+- (NSString *)photoPagesDefaultFontName;
+- (NSString *)photoPagesBoldFontName;
 
 @end
