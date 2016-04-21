@@ -10,6 +10,7 @@ The library was designed using a state pattern to control the behavior of the ga
   s.author             = "Eddy Borja"
   s.social_media_url   = "http://twitter.com/eddyborja_"
   s.platform     = :ios, '7.0'
+  s.source       = { :path => ".", :tag => "0.0.1" }
   s.source_files  = "EBPhotoPagesController", "EBPhotoPagesController/**/*.{h,m}"
   s.frameworks = "QuartzCore", "CoreGraphics", "AVFoundation"
   s.requires_arc = true
