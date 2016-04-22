@@ -537,7 +537,7 @@
 - (EBCaptionView *)captionViewForPhotoPagesController:(EBPhotoPagesController *)controller
 {
     CGRect bounds = controller.view.bounds;
-    CGRect frame = CGRectMake(20, 0, bounds.size.width-40, bounds.size.height+1);
+    CGRect frame = CGRectMake(0, 0, bounds.size.width, bounds.size.height+1);
     EBCaptionView *captionView = [[EBCaptionView alloc] initWithFrame:frame];
     [captionView setContentOffset:CGPointMake(0, -captionView.contentInset.top) animated:NO];
     return captionView;
@@ -1050,12 +1050,12 @@
 
 - (NSString *)photoPagesDefaultFontName
 {
-    return @"HelveticaNeue-Light";
+    return [[UIFont systemFontOfSize:12] fontName];
 }
 
 - (NSString *)photoPagesBoldFontName
 {
-    return @"HelveticaNeue-Bold";
+    return [[UIFont systemFontOfSize:12] fontName];
 }
 
 - (UIColor *)upperToolbarTintColor

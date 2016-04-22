@@ -20,6 +20,7 @@ static NSString *FrameKeyPath = @"frame";
 
 @interface EBCaptionView ()
 @property (strong) UILabel *textLabel;
+@property (strong) CAGradientLayer *captionLayer;
 @end
 
 #pragma mark - EBCaptionScrollView
@@ -58,7 +59,7 @@ static NSString *FrameKeyPath = @"frame";
     [self setTextLabel:captionLabel];
     [self setDelegate:self];
     [self setBackgroundColor:[UIColor clearColor]];
-    [self setScrollEnabled:YES];
+    [self setScrollEnabled:NO];
     [self setBounces:YES];
     [self setAlwaysBounceVertical:YES];
     [self setShowsHorizontalScrollIndicator:NO];
@@ -72,6 +73,14 @@ static NSString *FrameKeyPath = @"frame";
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(orientationChanged:)        name:UIDeviceOrientationDidChangeNotification
              object:device];
+    UIColor * highColor = [UIColor clearColor];
+    UIColor * lowColor = [UIColor blackColor];
+    
+    //The gradient, simply enough.  It is a rectangle
+    self.captionLayer = [CAGradientLayer layer];
+    [self.captionLayer setFrame:[self bounds]];
+    [self.captionLayer setColors:@[(id)[highColor CGColor], (id)[lowColor CGColor]]];
+    [self.layer insertSublayer:self.captionLayer atIndex:0];
 }
 
 - (void)dealloc
@@ -152,7 +161,7 @@ static NSString *FrameKeyPath = @"frame";
                          [self.textLabel setText:string];
                          [self setFrameForLabel:self.textLabel
                                      withString:string
-                                    maximumSize:CGSizeMake(self.frame.size.width,
+                                    maximumSize:CGSizeMake(self.frame.size.width - 40,
                                                     MaximumCaptionTextHeight)];
                          [self resetContentSize];
                          [self resetContentOffset];
@@ -201,7 +210,7 @@ static NSString *FrameKeyPath = @"frame";
                          [self.textLabel setAttributedText:attributedString];
                          [self setFrameForLabel:self.textLabel
                                      withString:[attributedString string]
-                                    maximumSize:CGSizeMake(self.frame.size.width,
+                                    maximumSize:CGSizeMake(self.frame.size.width - 40,
                                                     MaximumCaptionTextHeight)];
                          [self resetContentSize];
                          [self resetContentOffset];
@@ -224,6 +233,7 @@ static NSString *FrameKeyPath = @"frame";
     CGRect expectedLabelSize = [string boundingRectWithSize:maximumSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: label.font} context:nil];
     
     CGRect newFrame = label.frame;
+    newFrame.origin.x = newFrame.origin.x == 0 ? 20 : newFrame.origin.x;
     newFrame.size.height = expectedLabelSize.size.height;
     newFrame.size.width = maximumSize.width;
     [label setFrame:newFrame];
@@ -236,10 +246,13 @@ static NSString *FrameKeyPath = @"frame";
         subviewsRect = CGRectUnion(subviewsRect, view.frame);
     }
     
-    CGFloat contentHeight = subviewsRect.size.height + 30;
+    CGFloat contentHeight = subviewsRect.size.height + 10;
     [self setContentSize:CGSizeMake(1, contentHeight)];
     CGFloat topInset = self.bounds.size.height - contentHeight;
     [self setContentInset:UIEdgeInsetsMake(topInset, 0, 0, 0)];
+    CGRect layerBounds = subviewsRect;
+    layerBounds.size = CGSizeMake(layerBounds.size.width + 20, layerBounds.size.height + 20);
+    [self.captionLayer setFrame:layerBounds];
 }
 
 - (void)setMaxContentSize
@@ -330,7 +343,7 @@ static NSString *FrameKeyPath = @"frame";
 {
     [self setFrameForLabel:self.textLabel
                 withString:self.textLabel.text
-               maximumSize:CGSizeMake(self.frame.size.width,
+               maximumSize:CGSizeMake(self.frame.size.width - 40,
                                       MaximumCaptionTextHeight)];
     [self resetContentSize];
     [self resetContentOffset];
