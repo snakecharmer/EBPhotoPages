@@ -247,30 +247,6 @@ static NSString *ImageKeyPath = @"image";
     
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [super touchesEnded:touches withEvent:event];
-    
-    if(self.imageView.image == nil){
-        return;
-    }
-    
-    for(UITouch *touch in touches){
-        if([touch tapCount] == 1){
-            CGPoint screenTouchPoint = [touch locationInView:self];
-            CGPoint normalizedPoint = [self normalizedPositionForPoint:screenTouchPoint
-                                                               inFrame:[self frameForPhoto]];
-            NSDictionary *touchInfo =
-                @{@"screenTouchPoint": [NSValue valueWithCGPoint:screenTouchPoint],
-                  @"normalizedPointInPhoto" : [NSValue valueWithCGPoint:normalizedPoint]};
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewTouchDidEndNotification
-                                                                object:self
-                                                              userInfo:touchInfo];
-        }
-    }
-}
-
 #pragma mark - Setters
 
 - (void)setImage:(id)image

@@ -314,13 +314,6 @@ static NSString *FrameKeyPath = @"frame";
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    for(UIView *subview in self.subviews){
-        if (CGRectContainsPoint(subview.frame, point)) {
-            if(CGRectContainsPoint(self.bounds, point)){
-                return YES;
-            }
-        }
-    }
     return NO;
 }
 
