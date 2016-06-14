@@ -388,12 +388,16 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
 - (void)setCaption:(NSString *)caption
 {
     _caption = caption;
+    self.photoView.accessibilityLabel = caption;
+    self.photoView.isAccessibilityElement = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidSetCaptionNotification object:self];
 }
 
 - (void)setAttributedCaption:(NSAttributedString *)attributedCaption
 {
     _attributedCaption = attributedCaption;
+    self.photoView.accessibilityLabel = attributedCaption.string;
+    self.photoView.isAccessibilityElement = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidSetCaptionNotification object:self];
 }
 
