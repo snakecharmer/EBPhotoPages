@@ -17,7 +17,7 @@
 /*EBPhotoView is a UIScrollView subclass that hold's a photo in an imageview that can be interacted with through various gesture recognizers.*/
 
 @class EBTagPopover;
-@interface EBPhotoView : UIScrollView <UIScrollViewDelegate>
+@interface EBPhotoView : UIScrollView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 
 @property (strong, readonly) UIImageView *imageView;

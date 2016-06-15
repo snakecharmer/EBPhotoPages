@@ -581,6 +581,10 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
                                              selector:@selector(photoViewControllerDidEndCommentingWithNotification:) name:EBPhotoViewControllerDidEndCommentingNotification
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(photoDidPanToDismiss:) name:EBPhotoViewControllerDidPanToDismissNotification
+                                               object:nil];
+    
     
     [self.captionView addObserver:self
                        forKeyPath:ContentOffsetKeyPath
@@ -1208,6 +1212,11 @@ static NSString *kActionSheetIndexKey= @"actionSheetTargetIndex";
 - (void)photoViewControllerDidEndCommentingWithNotification:(NSNotification *)aNotification
 {
     [self setCurrentState:[EBPhotoPagesStateCommentingIdle new]];
+}
+
+- (void)photoDidPanToDismiss:(NSNotification *)aNotification
+{
+    [self dismiss];
 }
 
 - (void)didSelectActivityButton:(id)sender

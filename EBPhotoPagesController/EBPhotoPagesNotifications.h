@@ -38,6 +38,7 @@ static NSString *EBPhotoViewControllerDidUpdateCommentsNotification = @"PhotoVie
 static NSString *EBPhotoViewControllerDidCreateTagNotification = @"PhotoViewControllerCreatedTag";
 static NSString *EBPhotoViewControllerDidBeginCommentingNotification = @"PhotoViewControllerDidBeginCommenting";
 static NSString *EBPhotoViewControllerDidEndCommentingNotification = @"PhotoViewControllerDidEndCommenting";
+static NSString *EBPhotoViewControllerDidPanToDismissNotification = @"PhotoViewControllerDidPanToDismiss";
 #pragma unused(EBPhotoViewControllerDidSetImageNotification)
 #pragma unused(EBPhotoViewControllerDidSetCaptionNotification)
 #pragma unused(EBPhotoViewControllerDidSetMetaDataNotification)

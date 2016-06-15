@@ -26,6 +26,9 @@ static NSString *ImageKeyPath = @"image";
 
 @interface EBPhotoView ()
 @property (strong, readwrite) UIImageView *imageView;
+@property (assign) CGFloat flickThreshold;
+@property (assign) CGFloat snapDamping;
+@property (assign) CGFloat flickVelocityMultiplier;
 @end
 
 
@@ -63,6 +66,9 @@ static NSString *ImageKeyPath = @"image";
 
 - (void)initialize
 {
+    _flickThreshold = 1000;
+    _snapDamping = 0.5;
+    _flickVelocityMultiplier = 0.2;
     [self setDelegate:self];
     [self setShowsVerticalScrollIndicator:NO];
     [self setShowsHorizontalScrollIndicator:NO];
@@ -188,6 +194,10 @@ static NSString *ImageKeyPath = @"image";
     [self addGestureRecognizer:longPressGesture];
     
     [singleTapRecognizer requireGestureRecognizerToFail:doubleTapGesture];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    [panGestureRecognizer setDelegate:self];
+    [self addGestureRecognizer:panGestureRecognizer];
 }
 
 #pragma mark - Event Hooks
@@ -245,6 +255,35 @@ static NSString *ImageKeyPath = @"image";
                                                           userInfo:tapInfo];
     }
     
+}
+
+- (void)didPan:(id)sender
+{
+    UIPanGestureRecognizer *pan = sender;
+    
+    CGPoint location = [pan locationInView:self];
+    //CGPoint boxLocation = [pan locationInView:flickableView];
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:{
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            CGPoint velocity = [pan velocityInView:self];
+            float magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y));
+            if (magnitude > _flickThreshold && abs(velocity.y) > abs(velocity.x)) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:EBPhotoViewControllerDidPanToDismissNotification object:self userInfo:nil];
+            }
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return TRUE;
 }
 
 #pragma mark - Setters
