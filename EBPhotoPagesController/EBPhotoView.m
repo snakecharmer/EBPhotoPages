@@ -66,7 +66,7 @@ static NSString *ImageKeyPath = @"image";
 
 - (void)initialize
 {
-    _flickThreshold = 1000;
+    _flickThreshold = 3000;
     _snapDamping = 0.5;
     _flickVelocityMultiplier = 0.2;
     [self setDelegate:self];
