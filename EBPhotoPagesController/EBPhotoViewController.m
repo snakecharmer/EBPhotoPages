@@ -530,11 +530,11 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
     CGFloat rowHeight = 0;
     NSString *textForRow = nil;
     
-    if([comment respondsToSelector:@selector(attributedCommentText)] &&
-       [comment attributedCommentText]){
-        textForRow = [[comment attributedCommentText] string];
+    if([comment respondsToSelector:@selector(attributedDiscussionText)] &&
+       [comment attributedDiscussionText]){
+        textForRow = [[comment attributedDiscussionText] string];
     } else {
-        textForRow = [comment commentText];
+        textForRow = [comment discussionText];
     }
     
     //Get values from the comment cell itself, as an abstract class perhaps.
@@ -605,12 +605,12 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
     if (action == @selector(copy:)) {
         id<EBPhotoCommentProtocol> comment = self.comments[indexPath.row];
         NSString *copiedText = nil;
-        if([comment respondsToSelector:@selector(attributedCommentText)]){
-            copiedText = [[comment attributedCommentText] string];
+        if([comment respondsToSelector:@selector(attributedDiscussionText)]){
+            copiedText = [[comment attributedDiscussionText] string];
         }
         
         if(copiedText == nil){
-            copiedText = [comment commentText];
+            copiedText = [comment discussionText];
         }
         
         [[UIPasteboard generalPasteboard] setString:copiedText];
@@ -661,9 +661,9 @@ static NSString *TagPopoversKeyPath = @"tagPopovers";
 
 #pragma mark - Comments View Delegate
 
-- (void)commentsView:(id)view didPostNewComment:(NSString *)commentText
+- (void)commentsView:(id)view didPostNewComment:(NSString *)discussionText
 {
-    [self.delegate photoViewController:self didPostNewComment:commentText];
+    [self.delegate photoViewController:self didPostNewComment:discussionText];
 }
 
 #pragma mark - Comments UITextViewDelegate

@@ -26,8 +26,8 @@
 {
     self = [super init];
     if (self) {
-        [self setText:commentInfo[@"commentText"]];
-        [self setAttributedText:commentInfo[@"attributedCommentText"]];
+        [self setText:commentInfo[@"discussionText"]];
+        [self setAttributedText:commentInfo[@"attributedDiscussionText"]];
         [self setDate:commentInfo[@"commentDate"]];
         [self setName:commentInfo[@"authorName"]];
         [self setImage:commentInfo[@"authorImage"]];
@@ -36,12 +36,12 @@
     return self;
 }
 
-- (NSAttributedString *)attributedCommentText
+- (NSAttributedString *)attributedDiscussionText
 {
     return self.attributedText;
 }
 
-- (NSString *)commentText
+- (NSString *)discussionText
 {
     return self.text;
 }

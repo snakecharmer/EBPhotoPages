@@ -37,14 +37,14 @@
    
     
     NSArray *photo1Comments = @[
-                                [DEMOComment commentWithProperties:@{@"commentText": @"This is a comment!",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"This is a comment!",
                                  @"commentDate": [NSDate dateWithTimeInterval:-252750 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"aaronalfred.jpg"],
                                  @"authorName" : @"Aaron Alfred"}]
                                 ];
     
     NSArray *photo5Comments = @[
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Looks fun, and greasy!",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Looks fun, and greasy!",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-232500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"vladarbatov.jpg"],
                                                                      @"authorName" : @"VLADARBATOV"}]
@@ -68,17 +68,17 @@
 
     
     NSArray *photo2Comments = @[
-                                [DEMOComment commentWithProperties:@{@"commentText": @"What is this?",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"What is this?",
                                  @"commentDate": [NSDate dateWithTimeInterval:-2341500 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"iqonicd.jpg"],
                                  @"authorName" : @"IqonICD"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"It's a Lego minifig.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"It's a Lego minifig.",
                                  @"commentDate": [NSDate dateWithTimeInterval:-2262500 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"billskenney.jpg"],
                                  @"authorName" : @"Bill S. Kenney"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Pretty cool.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Pretty cool.",
                                  @"commentDate": [NSDate dateWithTimeInterval:-212500 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"liang.jpg"],
                                  @"authorName" : @"liang"}],
@@ -99,44 +99,44 @@
                             ];
     
     NSArray *photo8Comments = @[
-                                [DEMOComment commentWithProperties:@{@"commentText": @"GDC?",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"GDC?",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2741500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"kaelifa.jpg"],
                                                                      @"authorName" : @"Kaelifa"}],
                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Yup.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Yup.",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2499500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"eddyborja.jpg"],
                                                                      @"authorName" : @"Eddy Borja"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"I want a 3D Printer...",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"I want a 3D Printer...",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2299500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"tjrus.jpg"],
                                                                      @"authorName" : @"TJRus"}],
                                 ];
     
     NSArray *photo3Comments = @[
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Super hot peppers.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Super hot peppers.",
                                  @"commentDate": [NSDate dateWithTimeInterval:-2991500 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"g3d.jpg"],
                                  @"authorName" : @"g3d"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Wow, that's a lot of peppers.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Wow, that's a lot of peppers.",
                                  @"commentDate": [NSDate dateWithTimeInterval:-2881500 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"amandabuzard.jpg"],
                                  @"authorName" : @"AmandaBuzard"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"I don't know what this means....",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"I don't know what this means....",
                                  @"commentDate": [NSDate dateWithTimeInterval:-27700 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"ateneupopular.jpg"],
                                  @"authorName" : @"ateneupopular"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"How much did these cost?",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"How much did these cost?",
                                  @"commentDate": [NSDate dateWithTimeInterval:-26000 sinceDate:[NSDate date]],
                                  @"authorImage": [UIImage imageNamed:@"theaccordance.jpg"],
                                  @"authorName" : @"The Accordance"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Pretty cheap, got the seeds from Australia.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Pretty cheap, got the seeds from Australia.",
                                     @"commentDate": [NSDate dateWithTimeInterval:-21500 sinceDate:[NSDate date]],
                                     @"authorImage": [UIImage imageNamed:@"eddyborja.jpg"],
                                     @"authorName" : @"Eddy Borja"}],
@@ -154,11 +154,11 @@
     
     NSArray *photo11Comments = @[
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Congrats!",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Congrats!",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2446500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"adellecharles.jpg"],
                                                                      @"authorName" : @"Adelle Charles"}],
-                                [DEMOComment commentWithProperties:@{@"commentText": @"follow up Series A round $2.2 million USD!",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"follow up Series A round $2.2 million USD!",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2346500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"billskenney.jpg"],
                                                                      @"authorName" : @"Bill S. Kenney"}],
@@ -167,7 +167,7 @@
     
     NSArray *photo13Comments = @[
                                  
-                                 [DEMOComment commentWithProperties:@{@"commentText": @"走在街上",
+                                 [DEMOComment commentWithProperties:@{@"discussionText": @"走在街上",
                                                                       @"commentDate": [NSDate dateWithTimeInterval:-4446500 sinceDate:[NSDate date]],
                                                                       @"authorImage": [UIImage imageNamed:@"eddyborja.jpg"],
                                                                       @"authorName" : @"Eddy Borja"}],
@@ -176,17 +176,17 @@
     
     NSArray *photo0Comments = @[
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Great photo!",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Great photo!",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-241500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"megdraws.jpg"],
                                                                      @"authorName" : @"Meg Draws"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Pretty.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Pretty.",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-21800 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"iqonicd.jpg"],
                                                                      @"authorName" : @"IqonICD"}],
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"Wow!",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"Wow!",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2600 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"karsh.jpg"],
                                                                      @"authorName" : @"karsh"}],
@@ -203,7 +203,7 @@
     
     NSArray *photo6Comments = @[
                                 
-                                [DEMOComment commentWithProperties:@{@"commentText": @"That's a cool feature, it's always annoying when small images get blown up and pixelated.",
+                                [DEMOComment commentWithProperties:@{@"discussionText": @"That's a cool feature, it's always annoying when small images get blown up and pixelated.",
                                                                      @"commentDate": [NSDate dateWithTimeInterval:-2221500 sinceDate:[NSDate date]],
                                                                      @"authorImage": [UIImage imageNamed:@"kerem.jpg"],
                                                                      @"authorName" : @"Kerem"}],
@@ -561,7 +561,7 @@
              forPhotoAtIndex:(NSInteger)index
 {
     DEMOComment *newComment = [DEMOComment
-                               commentWithProperties:@{@"commentText": comment,
+                               commentWithProperties:@{@"discussionText": comment,
                                                        @"commentDate": [NSDate date],
                                                        @"authorImage": [UIImage imageNamed:@"guestAv.png"],
                                                        @"authorName" : @"Guest User"}];

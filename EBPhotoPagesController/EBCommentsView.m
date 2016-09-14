@@ -18,8 +18,8 @@
 @interface EBCommentsView ()
 @property (weak, readwrite) EBCommentsTableView *tableView;
 @property (weak, readwrite) UIButton *postButton;
-@property (weak, readwrite) UITextView *commentTextView;
-@property (weak, readwrite) UILabel *commentTextViewPlaceholder;
+@property (weak, readwrite) UITextView *discussionTextView;
+@property (weak, readwrite) UILabel *discussionTextViewPlaceholder;
 
 @end
 
@@ -59,8 +59,8 @@
     [self setBackgroundColor:backgroundColor];
     [self loadTableView];
     [self loadPostButton];
-    [self loadCommentTextView];
-    [self loadPlaceholderForTextView:self.commentTextView];
+    [self loadDiscussionTextView];
+    [self loadPlaceholderForTextView:self.discussionTextView];
     [self loadKeyboardFillerView];
 }
 
@@ -86,7 +86,7 @@
     [tableView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
 }
 
-- (void)loadCommentTextView
+- (void)loadDiscussionTextView
 {
     CGPoint textViewOrigin = CGPointMake(5, self.tableView.frame.size.height);
     CGRect textViewFrame = CGRectMake(textViewOrigin.x,
@@ -102,10 +102,10 @@
     [textView setKeyboardAppearance:UIKeyboardAppearanceAlert];
     [textView setTextColor:[UIColor whiteColor]];
     //[self setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin|  UIViewAutoresizingFlexibleWidth];
-    [self setCommentTextView:textView];
+    [self setDiscussionTextView:textView];
     [self addSubview:textView];
     [self setInputPlaceholderEnabled:YES];
-    [self.commentTextView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [self.discussionTextView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 }
 
 - (void)loadPlaceholderForTextView:(UITextView *)textView
@@ -118,7 +118,7 @@
     [textView.superview insertSubview:label belowSubview:textView];
     [label setText:[self commentInputPlaceholderText]];
     [label setFrame:CGRectOffset(label.frame, 5, -3)];
-    [self setCommentTextViewPlaceholder:label];
+    [self setDiscussionTextViewPlaceholder:label];
 }
 
 
@@ -202,7 +202,7 @@
 - (void)setInputPlaceholderEnabled:(BOOL)enabled
 {
     _inputPlaceholderEnabled = enabled;
-    [self.commentTextViewPlaceholder setHidden:!enabled];
+    [self.discussionTextViewPlaceholder setHidden:!enabled];
 }
 
 #pragma mark - Events
@@ -211,37 +211,35 @@
 
 - (void)didSelectPostButton:(id)sender
 {
-    if(self.commentTextView.isFirstResponder){
-        NSString *commentText = self.commentTextView.text;
-        [self.commentTextView resignFirstResponder];
-        [self.commentsDelegate commentsView:self didPostNewComment:commentText];
+    if(self.discussionTextView.isFirstResponder){
+        NSString *discussionText = self.discussionTextView.text;
+        [self.discussionTextView resignFirstResponder];
+        [self.commentsDelegate commentsView:self didPostNewComment:discussionText];
     }
 }
 
 - (void)enableCommenting
 {
-    [self.commentTextView setHidden:NO];
-    //[self.commentTextViewPlaceholder setHidden:NO];
-    [self.commentTextViewPlaceholder setText:[self commentInputPlaceholderText]];
+    [self.discussionTextView setHidden:NO];
+    [self.discussionTextViewPlaceholder setText:[self commentInputPlaceholderText]];
     [self.tableView setDrawsDividerLine:YES];
 }
 
 - (void)disableCommenting
 {
-    [self.commentTextView setHidden:YES];
-    //[self.commentTextViewPlaceholder setHidden:YES];
-    [self.commentTextViewPlaceholder setText:[self disabledInputPlaceholderText]];
+    [self.discussionTextView setHidden:YES];
+    [self.discussionTextViewPlaceholder setText:[self disabledInputPlaceholderText]];
     [self.tableView setDrawsDividerLine:NO];
 }
 
 - (void)startCommenting
 {
-    [self.commentTextView becomeFirstResponder];
+    [self.discussionTextView becomeFirstResponder];
 }
 
 - (void)cancelCommenting
 {
-    [self.commentTextView resignFirstResponder];
+    [self.discussionTextView resignFirstResponder];
 }
 
 

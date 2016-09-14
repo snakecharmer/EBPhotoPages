@@ -22,9 +22,9 @@
 
 @optional
 
-/* At least one of these two methods should be implemented. attributedCommentText takes priority over commentText*/
-- (NSAttributedString *)attributedCommentText;
-- (NSString *)commentText;
+/* At least one of these two methods should be implemented. attributedDiscussionText takes priority over discussionText*/
+- (NSAttributedString *)attributedDiscussionText;
+- (NSString *)discussionText;
 
 //This is the date when the comment was posted.
 - (NSDate *)postDate;
